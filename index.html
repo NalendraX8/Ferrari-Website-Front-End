@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loading…</title>
+  <meta name="color-scheme" content="dark" />
+  <!-- All CSS inlined -->
+  <style>
+    /* Pure black background and centered layout */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+    }
+    .center { display: grid; place-items: center; }
+    .logo { width: clamp(120px, 28vw, 220px); height: auto; }
+    /* Fade in, hold, fade out once */
+    .fade { opacity: 0; animation: logoFade 3s ease-in-out forwards; }
+    @keyframes logoFade {
+      0%   { opacity: 0; transform: scale(0.98); }
+      25%  { opacity: 1; transform: scale(1); }
+      70%  { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.01); }
+    }
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) { .fade { animation: none; opacity: 1; } }
+  </style>
+
+  <!-- Keep meta refresh for no-JS fallback -->
+  <meta http-equiv="refresh" content="4;url=index2.html" />
+</head>
+<body>
+  <main class="center" role="status" aria-live="polite">
+    <!-- Replace src with your base64-encoded PNG -->
+    <img
+      class="logo fade"
+      alt="Brand logo"
+      src="ferrari.png"
+    />
+  </main>
+
+  <!-- JS redirect (kept for everyone with JS) -->
+  <script>
+    setTimeout(function () {
+      window.location.href = "index2.html";
+    }, 10000);
+  </script>
+</body>
+</html>
